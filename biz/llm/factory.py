@@ -6,6 +6,7 @@ from biz.llm.client.ollama_client import OllamaClient
 from biz.llm.client.openai import OpenAIClient
 from biz.llm.client.qwen import QwenClient
 from biz.llm.client.zhipuai import ZhipuAIClient
+from biz.llm.client.bedrock import BedrockClient
 from biz.utils.log import logger
 
 
@@ -18,7 +19,8 @@ class Factory:
             'openai': lambda: OpenAIClient(),
             'deepseek': lambda: DeepSeekClient(),
             'qwen': lambda: QwenClient(),
-            'ollama': lambda : OllamaClient()
+            'ollama': lambda : OllamaClient(),
+            'bedrock': lambda: BedrockClient()
         }
 
         provider_func = chat_model_providers.get(provider)
